@@ -12,7 +12,8 @@ elif len(sys.argv) > 2:
     sys.exit(2)
 
 root = sys.argv[1]
-os.mkdir(os.path.join(root,"jpeg"))
+if not os.path.isdir(os.path.join(root,"jpeg")):
+    os.mkdir(os.path.join(root,"jpeg"))
 for f in os.listdir(root):
     if not f.startswith(".") and os.path.isfile(os.path.join(root,f)):
         print(os.path.join(root,f))
